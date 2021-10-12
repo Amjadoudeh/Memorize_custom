@@ -5,8 +5,8 @@
 //  Created by Amjad Oudeh on 11.10.21.
 //
 //Required Tasks
-//1. Get the Memorize game working as demonstrated in lectures 1 and 2. Type in all the
-//code. Do not copy/paste from anywhere.
+//1. Get the Memorize game working as demonstrated in lectures 1 and 2. Type in all the code. Do not copy/paste from anywhere.
+
 //2. You can remove the ⊖ and ⊕ buttons at the bottom of the screen.
 //3. Add a title “Memorize!” to the top of the screen.
 //4. Add at least 3 “theme choosing” buttons to your UI, each of which causes all of the
@@ -33,12 +33,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack{
-        CardView(content:"Amjad")
+        VStack{
+            HStack {
+                Text("Memorize").font(.largeTitle)
+                }
+            Spacer()
+           HStack{
+                CardView(content:"Amjad")
+                CardView(content:"Amjad")
+            }
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .padding()
+            }
         }
-        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-        .padding()
-    }
 }
 
 
