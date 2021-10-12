@@ -50,7 +50,7 @@ struct ContentView: View {
             Spacer()
             Airplanes
             Spacer()
-            Emojies
+            Flags
             }
         .padding(.horizontal)
         .font(.largeTitle)
@@ -71,11 +71,11 @@ struct ContentView: View {
                 Image(systemName: "airplane")
             })
         }
-    var Emojies : some View {
+    var Flags : some View {
             Button(action:  {
                 
             }, label: {
-                Image(systemName: "tram.fill")
+                Image(systemName: "flag.fill")
             })
         }
 }
