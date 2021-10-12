@@ -45,6 +45,38 @@ struct ContentView: View {
             .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
             .padding()
             }
+        HStack{
+            Vehicles
+            Spacer()
+            Airplanes
+            Spacer()
+            Emojies
+            }
+        .padding(.horizontal)
+        .font(.largeTitle)
+        }
+    
+    
+    var Vehicles : some View {
+            Button(action:  {
+                
+            }, label: {
+                Image(systemName: "car.fill")
+            })
+        }
+    var Airplanes : some View {
+            Button(action:  {
+                
+            }, label: {
+                Image(systemName: "airplane")
+            })
+        }
+    var Emojies : some View {
+            Button(action:  {
+                
+            }, label: {
+                Image(systemName: "tram.fill")
+            })
         }
 }
 
