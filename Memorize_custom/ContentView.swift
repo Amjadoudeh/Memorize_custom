@@ -77,9 +77,11 @@ struct ContentView: View {
                     emojis0 = emojis
                 }
             }, label: {
-                
+                VStack{
                 Image(systemName: "car.fill")
-//                Text("Vehicles")
+                    Text("Vehicles")
+                        .font(.footnote)
+                }
                 
             })
         }
@@ -89,7 +91,11 @@ struct ContentView: View {
                     emojis0 = emojis1
                 }
             }, label: {
+                VStack{
                 Image(systemName: "airplane")
+                Text("Airplans")
+                        .font(.footnote)
+                }
             })
         }
     var Flags : some View {
@@ -98,7 +104,11 @@ struct ContentView: View {
                     emojis0 = emojis2
                 }
             }, label: {
+                VStack{
                 Image(systemName: "flag.fill")
+                Text("Flags")
+                        .font(.footnote)
+                }
             })
         }
     }
