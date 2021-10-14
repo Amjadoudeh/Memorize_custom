@@ -29,6 +29,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    // i don't think that's a smarte solution
     @State var emojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
     @State var emojis0 = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
     @State var emojis1 = ["✈️","🛩","🚁","🚀","🛰","🛫","🛬","🛸"]
@@ -123,7 +124,7 @@ struct ContentView: View {
 
 struct CardView: View {
     var content : String
-   @State var isFaceUp : Bool = false
+   @State var isFaceUp : Bool = true
     
     var body : some View {
         let shape = RoundedRectangle(cornerRadius: 25.0)
