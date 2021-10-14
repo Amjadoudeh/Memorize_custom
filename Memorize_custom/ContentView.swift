@@ -13,12 +13,13 @@
 
 //4. Add at least 3 “theme choosing” buttons to your UI, each of which causes all of the cards to be replaced with new cards that contain emoji that match the chosen theme. You can use Vehicles from lecture as one of the 3 themes if you want to, but you are welcome to create 3 (or more) completely new themes. ✔️
 
-//5. The number of cards in each of your 3 themes should be different, but in no case fewer than 8.
+//5. The number of cards in each of your 3 themes should be different, but in no case fewer than 8.✔️
 
 //6. The cards that appear when a theme button is touched should be in an unpredictable
 //(i.e. random) order. In other words, the cards should be shuffled each time a theme
-//button is chosen.
-//7. The theme-choosing buttons must include an image representing the theme and text describing the theme stacked on top of each other vertically.
+//button is chosen.✔️
+
+//7. The theme-choosing buttons must include an image representing the theme and text describing the theme stacked on top of each other vertically.✔️
 
 //8. The image portion of each of the theme-choosing buttons must be created using an SF Symbol which evokes the idea of the theme it chooses (like the car symbol and the Vehicles theme shown in the Screenshot section below).✔️
 
@@ -31,11 +32,11 @@ import SwiftUI
 struct ContentView: View {
     // i don't think that's a smarte solution
     @State var currentlyDisplayedEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
-    @State var vehiclesEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
-    @State var airplanesEmojis = ["✈️","🛩","🚁","🚀","🛰","🛫","🛬","🛸"]
-    @State var flagsEmojis = ["🏴","🏳️‍🌈","🇩🇪","🇫🇮","🇬🇷","🇬🇵","🇮🇩","🇪🇸","🏁"]
+    let vehiclesEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
+    let airplanesEmojis = ["✈️","🛩","🚁","🚀","🛰","🛫","🛬","🛸"]
+    let flagsEmojis = ["🏴","🏳️‍🌈","🇩🇪","🇫🇮","🇬🇷","🇬🇵","🇮🇩","🇪🇸","🏁"]
 
-    @State var emojiCount = 8
+//    @State var emojiCount = 8
     
     var body: some View {
         VStack{
@@ -49,7 +50,7 @@ struct ContentView: View {
                     ScrollView{
                         LazyVGrid(columns: [GridItem(.adaptive(minimum:65))])
                     {
-                        ForEach(currentlyDisplayedEmojis[0..<emojiCount], id: \.self) {
+                        ForEach(currentlyDisplayedEmojis, id: \.self) {
                             emoji in CardView (content: emoji).aspectRatio(2/3, contentMode:.fit)
                                 }
                         }
@@ -73,7 +74,8 @@ struct ContentView: View {
     
     var Vehicles : some View {
             Button(action:  {
-                currentlyDisplayedEmojis = vehiclesEmojis
+                
+                currentlyDisplayedEmojis =  vehiclesEmojis.shuffled()
             }, label: {
                 VStack{
                 Image(systemName: "car.fill")
@@ -85,7 +87,7 @@ struct ContentView: View {
         }
     var Airplanes : some View {
             Button(action:  {
-                currentlyDisplayedEmojis = airplanesEmojis
+                currentlyDisplayedEmojis = airplanesEmojis.shuffled()
             }, label: {
                 VStack{
                 Image(systemName: "airplane")
@@ -96,7 +98,7 @@ struct ContentView: View {
         }
     var Flags : some View {
             Button(action:  {
-               currentlyDisplayedEmojis = flagsEmojis
+               currentlyDisplayedEmojis = flagsEmojis.shuffled()
             }, label: {
                 VStack{
                 Image(systemName: "flag.fill")
