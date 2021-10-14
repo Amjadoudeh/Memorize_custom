@@ -30,10 +30,10 @@ import SwiftUI
 
 struct ContentView: View {
     // i don't think that's a smarte solution
-    @State var emojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
-    @State var emojis0 = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
-    @State var emojis1 = ["✈️","🛩","🚁","🚀","🛰","🛫","🛬","🛸"]
-    @State var emojis2 = ["🏴","🏳️‍🌈","🇩🇪","🇫🇮","🇬🇷","🇬🇵","🇮🇩","🇪🇸","🏁"]
+    @State var currentlyDisplayedEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
+    @State var vehiclesEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
+    @State var airplanesEmojis = ["✈️","🛩","🚁","🚀","🛰","🛫","🛬","🛸"]
+    @State var flagsEmojis = ["🏴","🏳️‍🌈","🇩🇪","🇫🇮","🇬🇷","🇬🇵","🇮🇩","🇪🇸","🏁"]
 
     @State var emojiCount = 8
     
@@ -49,7 +49,7 @@ struct ContentView: View {
                     ScrollView{
                         LazyVGrid(columns: [GridItem(.adaptive(minimum:65))])
                     {
-                        ForEach(emojis0[0..<emojiCount], id: \.self) {
+                        ForEach(currentlyDisplayedEmojis[0..<emojiCount], id: \.self) {
                             emoji in CardView (content: emoji).aspectRatio(2/3, contentMode:.fit)
                                 }
                         }
@@ -73,10 +73,7 @@ struct ContentView: View {
     
     var Vehicles : some View {
             Button(action:  {
-                if (emojis0 == emojis1 || emojis0 == emojis2 )
-                {
-                    emojis0 = emojis
-                }
+                currentlyDisplayedEmojis = vehiclesEmojis
             }, label: {
                 VStack{
                 Image(systemName: "car.fill")
@@ -88,9 +85,7 @@ struct ContentView: View {
         }
     var Airplanes : some View {
             Button(action:  {
-                if (emojis0 == emojis0 || emojis0 == emojis2 ){
-                    emojis0 = emojis1
-                }
+                currentlyDisplayedEmojis = airplanesEmojis
             }, label: {
                 VStack{
                 Image(systemName: "airplane")
@@ -101,9 +96,7 @@ struct ContentView: View {
         }
     var Flags : some View {
             Button(action:  {
-                if (emojis0 == emojis1 || emojis0 == emojis2 ){
-                    emojis0 = emojis2
-                }
+               currentlyDisplayedEmojis = flagsEmojis
             }, label: {
                 VStack{
                 Image(systemName: "flag.fill")
@@ -113,11 +106,6 @@ struct ContentView: View {
             })
         }
     }
-
-
-
-
-
 
 
 // card!
