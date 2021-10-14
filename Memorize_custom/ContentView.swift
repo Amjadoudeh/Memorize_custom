@@ -30,13 +30,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    // i don't think that's a smarte solution
+  
     @State var currentlyDisplayedEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
     let vehiclesEmojis = ["🚙","🏎","🚑","🚞","🛵","🚘","🚜","🚓","🚒","💺","🛻","🚀","🛶","🛸"]
     let airplanesEmojis = ["✈️","🛩","🚁","🚀","🛰","🛫","🛬","🛸"]
     let flagsEmojis = ["🏴","🏳️‍🌈","🇩🇪","🇫🇮","🇬🇷","🇬🇵","🇮🇩","🇪🇸","🏁"]
-
-//    @State var emojiCount = 8
     
     var body: some View {
         VStack{
@@ -74,8 +72,9 @@ struct ContentView: View {
     
     var Vehicles : some View {
             Button(action:  {
-                
+//                isFaceUp = false
                 currentlyDisplayedEmojis =  vehiclesEmojis.shuffled()
+                
             }, label: {
                 VStack{
                 Image(systemName: "car.fill")
@@ -114,7 +113,7 @@ struct ContentView: View {
 
 struct CardView: View {
     var content : String
-   @State var isFaceUp : Bool = true
+   @State var isFaceUp : Bool = false
     
     var body : some View {
         let shape = RoundedRectangle(cornerRadius: 25.0)
